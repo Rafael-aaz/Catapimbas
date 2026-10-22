@@ -5,14 +5,22 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
 {
-    [Header("Referências")]
+    [Header("ReferÃªncias")]
     [SerializeField] private GameManager gameManager;
+    
+    [SerializeField] private GameSFXController gameSFXController;
 
-    [Header("Movimentação")]
+    [Header("MovimentaÃ§Ã£o")]
     [SerializeField] private float jumpForce = 6f;
     [SerializeField] private float gravityScale = 1.5f;
 
+    [Header("Limite Superior")]
+    [SerializeField] private float topMargin = 0.1f;
+
     private Rigidbody2D rb;
+    private Collider2D playerCollider;
+    private Camera gameCamera;
+
     private bool gameStarted = false;
 
     public bool IsGameStarted => gameStarted;
@@ -21,16 +29,23 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
 
-        // Mantém o personagem parado até o primeiro clique.
+        playerCollider = GetComponent<Collider2D>();
+        gameCamera = Camera.main;
+
+        // O personagem comeÃ§a imÃ³vel atÃ© o primeiro clique.
         rb.gravityScale = 0f;
         rb.linearVelocity = Vector2.zero;
     }
 
     private void Update()
     {
-        // Impede novos comandos após o Game Over.
-        if (gameManager == null || gameManager.IsGameOver)
+        // Bloqueia os comandos durante o Pause ou Game Over.
+        if (gameManager == null ||
+            gameManager.IsPaused ||
+            gameManager.IsGameOver)
+        {
             return;
+        }
 
         bool mouseClick = Mouse.current != null &&
             Mouse.current.leftButton.wasPressedThisFrame;
@@ -59,18 +74,63 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        // Verifica o limite somente durante a partida.
+        if (gameManager == null ||
+            !gameManager.IsPlaying ||
+            gameCamera == null ||
+            playerCollider == null)
+        {
+            return;
+        }
+
+        // Calcula o topo visÃ­vel da cÃ¢mera ortogrÃ¡fica.
+        float cameraTop = gameCamera.transform.position.y +
+            gameCamera.orthographicSize - topMargin;
+
+        // Mede quanto o collider ultrapassou esse limite.
+        float excessHeight = playerCollider.bounds.max.y - cameraTop;
+
+        if (excessHeight > 0f)
+        {
+            // Reposiciona o jogador dentro da Ã¡rea visÃ­vel.
+            rb.position = new Vector2(
+                rb.position.x,
+                rb.position.y - excessHeight
+            );
+        }
+
+        // Impede que o jogador continue subindo no limite.
+        if (excessHeight >= 0f && rb.linearVelocity.y > 0f)
+        {
+            rb.linearVelocity = new Vector2(
+                rb.linearVelocity.x,
+                0f
+            );
+        }
+    }
+
+    
     private void Jump()
     {
-        // Aplica sempre a mesma velocidade vertical.
+        // Aplica o impulso vertical.
         rb.linearVelocity = new Vector2(0f, jumpForce);
+
+        // Reproduz o efeito a cada pulo.
+        if (gameSFXController != null)
+        {
+            gameSFXController.PlayJump();
+        }
     }
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (!gameStarted || gameManager == null)
             return;
 
-        // Nesta fase, qualquer colisão física encerra a partida.
+        // ColisÃµes com o chÃ£o ou obstÃ¡culos causam Game Over.
         gameManager.EndGame();
     }
 }

@@ -76,6 +76,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ObstaclePair
   moveSpeed: 4
   destroyX: -11
+  topPipe: {fileID: 4494091566182701892}
+  bottomPipe: {fileID: 68699077285047994}
+  originalGap: 2.6
 --- !u!1 &6848799956950126336
 GameObject:
   m_ObjectHideFlags: 0
@@ -103,8 +106,8 @@ Transform:
   m_GameObject: {fileID: 6848799956950126336}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.91, z: 0}
-  m_LocalScale: {x: 1, y: 5, z: 1}
+  m_LocalPosition: {x: 0, y: -5.2766, z: 0}
+  m_LocalScale: {x: 1, y: 7.733, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2336812811292363774}
@@ -241,8 +244,8 @@ Transform:
   m_GameObject: {fileID: 9157321621413725528}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.01, z: 0}
-  m_LocalScale: {x: 1, y: 5, z: 1}
+  m_LocalPosition: {x: 0, y: 5.8147, z: 0}
+  m_LocalScale: {x: 1, y: 8.609344, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2336812811292363774}
