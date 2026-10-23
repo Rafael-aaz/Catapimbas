@@ -221,10 +221,10 @@ MonoBehaviour:
   introSource: {fileID: 1715929923}
   loopSource: {fileID: 1790180372}
   gameMusicController: {fileID: 70504225}
-  firstDelayMin: 5
-  firstDelayMax: 6
-  intervalMin: 4
-  intervalMax: 4
+  firstDelayMin: 15
+  firstDelayMax: 17
+  intervalMin: 20
+  intervalMax: 22
   durationMin: 2
   durationMax: 4
   accelerationPitch: 1.7
@@ -903,7 +903,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -43.3}
+  m_AnchoredPosition: {x: 0, y: -43.30005}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &569505003
@@ -935,8 +935,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1095,12 +1095,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GlitchFlashController
   gameManager: {fileID: 1758430908}
-  minInterval: 20
-  maxInterval: 25
+  minInterval: 22
+  maxInterval: 26
   flashOpacity: 0.7
   flashDuration: 0.07
-  minFlashesPerSequence: 2
-  maxFlashesPerSequence: 3
+  minFlashesPerSequence: 4
+  maxFlashesPerSequence: 4
   timeBetweenFlashes: 0.03
 --- !u!1 &619394800
 GameObject:
@@ -1438,8 +1438,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: ffb586ab5260f034fb4bcc54b9fb929b, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1904,8 +1904,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 34
-  m_fontSizeBase: 34
+  m_fontSize: 32
+  m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2646,7 +2646,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -672468075703787259, guid: d7a7919164975214ab942295576088cd, type: 3}
+  m_Sprite: {fileID: -1219189156374365070, guid: 63934012942a43f47a39a1d69e96a264, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2665,8 +2665,8 @@ Transform:
   m_GameObject: {fileID: 1109931441}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.1, y: -10.55, z: 0}
-  m_LocalScale: {x: 0.6197367, y: 0.41367003, z: 1}
+  m_LocalPosition: {x: 0.1, y: -9.05, z: 0}
+  m_LocalScale: {x: 0.45, y: 0.2372, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -2705,17 +2705,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 15.3}
+  m_Offset: {x: 0, y: 20.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 35, y: 35}
+    oldSize: {x: 46.899998, y: 46.899998}
     newSize: {x: 35, y: 35}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 40, y: 4}
+  m_Size: {x: 50, y: 6}
   m_EdgeRadius: 0
 --- !u!1 &1158652971
 GameObject:
@@ -2801,8 +2801,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 34
-  m_fontSizeBase: 34
+  m_fontSize: 32
+  m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3863,10 +3863,10 @@ MonoBehaviour:
   obstaclePrefab: {fileID: 5818754173027646887, guid: 87af17b42328db148997807c8d72b301, type: 3}
   gameManager: {fileID: 1758430908}
   spawnX: 11
-  minSpawnY: -2.1
-  maxSpawnY: 2.5
+  minSpawnY: -1.6
+  maxSpawnY: 2.8
   maxHeightDifference: 3
-  pointsPerLevel: 2
+  pointsPerLevel: 10
   maxDifficultyLevel: 6
   initialGap: 2.6
   gapReductionPerLevel: 0.1
@@ -4141,8 +4141,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: f0b102eade37b3d469a3e1465d85d4e3, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -4323,7 +4323,7 @@ AudioDistortionFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1715929921}
   m_Enabled: 0
-  m_DistortionLevel: 0.4
+  m_DistortionLevel: 0.9
 --- !u!1 &1744202084
 GameObject:
   m_ObjectHideFlags: 0
@@ -5453,7 +5453,7 @@ AudioDistortionFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1790180370}
   m_Enabled: 0
-  m_DistortionLevel: 0.4
+  m_DistortionLevel: 0.9
 --- !u!1 &1815215397
 GameObject:
   m_ObjectHideFlags: 0
