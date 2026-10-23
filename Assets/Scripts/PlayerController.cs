@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
 
         if (!gameStarted)
         {
-            if (mouseClick)
+            if (mouseClick || spacePressed)
             {
                 gameStarted = true;
 
